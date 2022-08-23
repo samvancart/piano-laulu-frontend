@@ -12,11 +12,13 @@ function Navbar() {
   return (
     <>
       <nav className='navbar'>
-        <div className='navbar-container'>
+        <div className='navbar-container-left'>
           <Link to="/" className="navbar-logo">
             Piano-laulu
             {/* <i classname="fab fa-typo3"></i> */}
           </Link>
+        </div>
+        <div className='navbar-container-right'>
           <div className='menu-icon' onClick={handleClick}>
             <i>
               {click ? (

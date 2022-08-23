@@ -1,8 +1,9 @@
 .navbar {
     background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+    /* background: linear-gradient(90deg, rgb(255,250,252) 0%, rgb(56, 29, 29) 100%); */
     height: 80px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-size: 1.2rem;
     position: sticky;
@@ -10,12 +11,26 @@
     z-index: 999;
   }
   
-  .navbar-container {
+  .navbar-container-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 80px;
+    max-width: 1500px;
+    /* border-style: solid;
+    border-width: 3px; */
+    width: 50%;
+    float: left;
+  }
+  .navbar-container-right {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 80px;
     max-width: 1500px;
+    /* border-style: solid;
+    border-width: 3px; */
+    width: 50%;
   }
   
   .navbar-logo {
@@ -37,16 +52,21 @@
   .nav-menu {
     display: grid;
     grid-template-columns: repeat(4, auto);
-    grid-gap: 10px;
+    grid-gap: 100px;
     list-style: none;
     text-align: center;
     width: 60vw;
-    justify-content: flex-start;
+    justify-content: flex-end;
     margin-right: 2rem;
   }
   
   .nav-item {
     height: 80px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid black; */
   }
   
   .nav-links {
@@ -59,7 +79,9 @@
   }
   
   .nav-links:hover {
-    border-bottom: 4px solid #fff;
+    /* border-bottom: 4px solid #fff; */
+    /* font-size: 25px; */
+    color: rgb(255, 115, 0);
     transition: all 0.2s ease-out;
   }
   
@@ -82,23 +104,35 @@
     }
   
     .nav-menu {
-      display: flex;
+      display: none;
       flex-direction: column;
       width: 100%;
-      height: 90vh;
+      /* height: 90vh; */
       position: absolute;
       top: 80px;
-      left: -100%;
+      /* left: -100%; */
+      left: 0%;
+
       opacity: 1;
       transition: all 0.5s ease;
+      justify-content: flex-start;
+      grid-gap: 10px;
     }
   
     .nav-menu.active {
+      display: flex;
       background: #242222;
       left: 0;
       opacity: 1;
       transition: all 0.5s ease;
       z-index: 1;
+    }
+
+    .nav-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   
     .nav-links {
