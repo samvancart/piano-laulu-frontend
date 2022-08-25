@@ -2,12 +2,53 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaBars, FaTimes } from "react-icons/fa";
 import './Navbar.css';
+import { Button } from './Button';
 
-function Navbar() {
+
+
+function Navbar(props) {
   const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+
+
+  const varaaLink = () => {
+    return (
+      <li className='nav-item'>
+        <Link to='/varaa' className='nav-links' onClick={closeMobileMenu}>
+          Varaa keikka
+        </Link>
+      </li>
+    )
+  }
+
+  const varaaBtn = () => {
+    return (
+        button && <li className='nav-item'><Button buttonStyle='btn--outline'>Varaa keikka</Button></li>
+    )
+  }
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
+
+  function btnLink(props) {
+    if (button === true) {
+      console.log('show!');
+      return varaaBtn();
+    }
+    console.log('No show');
+    return varaaLink();
+
+  }
+  
+  window.addEventListener('resize', showButton);
 
   return (
     <>
@@ -44,7 +85,14 @@ function Navbar() {
                 Products
               </Link>
             </li>
+            {btnLink()}
+            {/* <li className='nav-btn'>
+              <Link to='/varaa' className='nav-btn-links' onClick={closeMobileMenu}>
+                Varaa
+              </Link>
+            </li> */}
           </ul>
+          {/* {button && <Button buttonStyle='btn--outline'>Sign up</Button>} */}
         </div>
       </nav>
     </>
