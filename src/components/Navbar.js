@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FaBars, FaTimes } from "react-icons/fa";
 import './Navbar.css';
@@ -26,7 +26,7 @@ function Navbar(props) {
 
   const varaaBtn = () => {
     return (
-        button && <li className='nav-item'><Button buttonStyle='btn--outline'>Varaa keikka</Button></li>
+      button && <li className='nav-item'><Button buttonStyle='btn--outline'>Varaa keikka</Button></li>
     )
   }
 
@@ -47,7 +47,11 @@ function Navbar(props) {
     return varaaLink();
 
   }
-  
+
+  useEffect(() => {
+    showButton();
+  }, []);
+
   window.addEventListener('resize', showButton);
 
   return (

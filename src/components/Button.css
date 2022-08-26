@@ -8,7 +8,7 @@
     outline: none;
     border: none;
     cursor: pointer;
-    /* text-align: center; */
+    text-align: center;
     justify-content: center;
     display: flex;
     white-space: nowrap;
@@ -26,7 +26,7 @@
     color: #242424;
     padding: 8px 20px;
     border: 1px solid var(--primary);
-    border-radius: 25px;
+    border-radius: 10px;
     width: 140px;
     transition: all 0.3s ease-out;
 }
