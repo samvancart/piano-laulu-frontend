@@ -40,10 +40,8 @@ function Navbar(props) {
 
   function btnLink(props) {
     if (button === true) {
-      console.log('show!');
       return varaaBtn();
     }
-    console.log('No show');
     return varaaLink();
 
   }

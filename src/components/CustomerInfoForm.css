@@ -43,7 +43,7 @@ select {
   /* outline: none; */
 }
 
-.input_box {
+form textarea {
   margin: 1rem 0 1rem;
   padding: 0.8rem 0.5rem;
   font-size: 1rem;
@@ -69,6 +69,16 @@ select:focus {
 
 input::placeholder,
 select::placeholder,
-.input_box::placeholder {
+form textarea::placeholder {
   color: #a0aec0;
+}
+
+.input-error,
+.input-box-error {
+  /* border-bottom: 2px solid rgb(136, 16, 16); */
+}
+
+.error {
+  font-size: small;
+  color: rgb(136, 16, 16);
 }
