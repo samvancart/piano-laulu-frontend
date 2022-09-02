@@ -1,14 +1,19 @@
 import { Form, Formik } from "formik";
 import FormInput from "./FormInput";
 import FormInputBox from "./FormInputBox";
-import Button from "./Button";
 import { CustomerInfoSchema } from "../schemas/CustomerInfoSchema"
 import './CustomerInfoForm.css'
 
-// const onSubmit = async (values, actions) => {
-//     await new Promise((resolve) => setTimeout(resolve, 1000));
-//     actions.resetForm();
-// };
+const onSubmit = async (values, actions) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    actions.resetForm();
+    actions.validateForm();
+    console.log('values: ', values);
+    console.log('actions: ', actions);
+
+};
+
+
 
 
 const CustomerInfoForm = () => {
@@ -16,7 +21,7 @@ const CustomerInfoForm = () => {
         <Formik
             initialValues={{ name: "", email: "", phone: "", info: "" }}
             validationSchema={CustomerInfoSchema}
-            // onSubmit={onSubmit}
+            onSubmit={onSubmit}
         >
             {({ isSubmitting }) => (
                 <Form>
@@ -45,7 +50,6 @@ const CustomerInfoForm = () => {
                         className="btn--primary"
                         disabled={isSubmitting}
                         type="submit"
-                        // buttonStyle='btn--primary'
                     >
                         Lähetä
                     </button>
