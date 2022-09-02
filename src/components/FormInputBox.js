@@ -1,18 +1,20 @@
 import React from 'react'
 import { useField } from 'formik';
 
-const FormInputBox = ({ label, ...props }) => {
+const FormInputBox = ({ label, clickedBtn, isTouched, ...props }) => {
     const [field, meta] = useField(props);
     // console.log("field: ", field);
     // console.log("meta: ", meta);
+    console.log(clickedBtn);
     return (
         <>
             <textarea
                 {...field}
                 {...props}
-                className={meta.touched && meta.error ? "input-box-error" : ""}
+            // className={meta.touched && meta.error ? "input-box-error" : ""}
+
             />
-            {meta.touched && meta.error && <div className="error">{meta.error}</div>}
+            {clickedBtn && meta.error && <div className="error">{meta.error}</div>}
         </>
     );
 };

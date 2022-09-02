@@ -81,6 +81,7 @@ form textarea::placeholder {
 .error {
   font-size: small;
   color: rgb(136, 16, 16);
+  margin: 1rem 0 1rem;
 }
 
 .btn--primary {
@@ -106,7 +107,7 @@ form textarea::placeholder {
 }
 
 .btn--primary:hover {
-    background: transparent;
-    color: rgb(255, 115, 0);
-    transition: all 0.3s ease-out;
+  background: transparent;
+  color: rgb(255, 115, 0);
+  transition: all 0.3s ease-out;
 }

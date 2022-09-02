@@ -1,11 +1,12 @@
 import React from 'react'
 import { useField } from 'formik';
 
-const FormInput = ({ label, ...props }) => {
+const FormInput = ({ label, clickedBtn, isTouched, ...props }) => {
     const [field, meta, helper, actions] = useField(props);
     // console.log("field: ", field);
     // console.log("meta: ", meta);
     // console.log("helper: ", helper);
+    console.log('isTouched: ', isTouched);
 
     return (
         <>
@@ -13,9 +14,9 @@ const FormInput = ({ label, ...props }) => {
                 {...field}
                 {...props}
                 // className={ meta.touched && meta.error ? "input-error" : ""}
-                className={ meta.touched && meta.error ? "input-error" : ""}
+                className={clickedBtn && meta.error ? "input-error" : ""}
             />
-            {meta.touched && meta.error && <div className="error">{meta.error}</div>}
+            {clickedBtn && meta.error && <div className="error">{meta.error}</div>}
         </>
     );
 };
