@@ -18,8 +18,6 @@ const CustomerInfoForm = () => {
     const [clickedBtn, setClickedBtn] = useState(false);
 
     const isClickedBtn = () => setClickedBtn(true);
-    const isTouched = () => setClickedBtn(false);
-
 
     return (
         <Formik
@@ -35,35 +33,31 @@ const CustomerInfoForm = () => {
                         type="text"
                         placeholder="Nimi *"
                         clickedBtn={clickedBtn}
-                        isTouched={isTouched}
                     />
                     <FormInput
                         name="email"
                         type="text"
                         placeholder="Sähköposti *"
                         clickedBtn={clickedBtn}
-                        isTouched={isTouched}
                     />
                     <FormInput
                         name="phone"
                         type="number"
                         placeholder="Puhelinnumero *"
                         clickedBtn={clickedBtn}
-                        isTouched={isTouched}
                     />
                     <FormInputBox
                         name="info"
                         type="text"
                         placeholder="Lisätiedot (esim. musiikkotoiveet yms.) *"
                         clickedBtn={clickedBtn}
-                        isTouched={isTouched}
                     />
                     <button
                         className="btn--primary"
                         disabled={isSubmitting}
                         type="submit"
                         onClick={isClickedBtn}
-                        
+
                     >
                         Lähetä
                     </button>
