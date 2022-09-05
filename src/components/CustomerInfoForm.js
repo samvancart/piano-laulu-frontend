@@ -4,20 +4,38 @@ import FormInputBox from "./FormInputBox";
 import { CustomerInfoSchema } from "../schemas/CustomerInfoSchema"
 import './CustomerInfoForm.css'
 import { useState } from "react";
-
-const onSubmit = async (values, actions) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    actions.resetForm();
-    // actions.validateForm();
-    // console.log('values: ', values);
-    // console.log('actions: ', actions);
-};
+import axios from 'axios';
 
 
 const CustomerInfoForm = () => {
+
+    const onSubmit = async (values, actions) => {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        actions.resetForm();
+        setClickedBtn(false);
+        // actions.validateForm();
+        console.log('values: ', values);
+        // console.log('actions: ', actions);
+
+        axios
+            .post('http://localhost:8000/api/send', values)
+            .then(response => {
+                console.log(response);
+            });
+    };
+
+
+
+
     const [clickedBtn, setClickedBtn] = useState(false);
 
-    const isClickedBtn = () => setClickedBtn(true);
+    const wasClickedBtn = () => setClickedBtn(true);
+    // const isClickedBtn = () => setClickedBtn(false);
+
+    // const onClick = (e) => {
+    //     console.log('clicked',e);
+    //     isClickedBtn();  
+    // }
 
     return (
         <Formik
@@ -51,12 +69,13 @@ const CustomerInfoForm = () => {
                         type="text"
                         placeholder="Lisätiedot (esim. musiikkotoiveet yms.) *"
                         clickedBtn={clickedBtn}
+                    // onClick={onClick}
                     />
                     <button
                         className="btn--primary"
                         disabled={isSubmitting}
                         type="submit"
-                        onClick={isClickedBtn}
+                        onClick={wasClickedBtn}
 
                     >
                         Lähetä

@@ -2,10 +2,8 @@ import React from 'react'
 import { useField } from 'formik';
 
 const FormInput = ({ label, clickedBtn, ...props }) => {
-    const [field, meta, helper, actions] = useField(props);
-    console.log("field: ", field);
-    console.log("meta: ", meta);
-    console.log("helper: ", helper);
+    const [field, meta] = useField(props);
+
 
     return (
         <>

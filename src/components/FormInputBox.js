@@ -3,9 +3,6 @@ import { useField } from 'formik';
 
 const FormInputBox = ({ label, clickedBtn, ...props }) => {
     const [field, meta] = useField(props);
-    // console.log("field: ", field);
-    // console.log("meta: ", meta);
-    console.log(clickedBtn);
 
     return (
         <>

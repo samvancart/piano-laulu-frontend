@@ -17,7 +17,7 @@ function Navbar(props) {
   const varaaLink = () => {
     return (
       <li className='nav-item'>
-        <Link to='/varaa' className='nav-links' onClick={closeMobileMenu}>
+        <Link to='/send' className='nav-links' onClick={closeMobileMenu}>
           Varaa keikka
         </Link>
       </li>
