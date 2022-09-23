@@ -12,7 +12,7 @@ const CustomerInfoForm = () => {
     const onSubmit = async (values, actions) => {
         await new Promise((resolve) => setTimeout(resolve, 1000));
         actions.resetForm();
-        setClickedBtn(false);
+        setWasClickedBtn(false);
         // actions.validateForm();
         console.log('values: ', values);
         // console.log('actions: ', actions);
@@ -27,9 +27,9 @@ const CustomerInfoForm = () => {
 
 
 
-    const [clickedBtn, setClickedBtn] = useState(false);
+    const [clickedBtn, setWasClickedBtn] = useState(false);
 
-    const wasClickedBtn = () => setClickedBtn(true);
+    const wasClickedBtn = () => setWasClickedBtn(true);
     // const isClickedBtn = () => setClickedBtn(false);
 
     // const onClick = (e) => {
